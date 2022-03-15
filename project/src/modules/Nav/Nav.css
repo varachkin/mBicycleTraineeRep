@@ -1,0 +1,26 @@
+.nav ul {
+    display: flex;
+    list-style: none;
+}
+
+.nav ul li {
+    margin-left: 45px;
+}
+
+.nav ul li {
+    margin-left: 45px;
+}
+
+.nav_link {
+    text-decoration: none;
+    color: #2b2b27;
+    transition: 0.3s;
+}
+
+.nav_link:hover {
+    color: #ffba00ff;
+}
+
+.nav_link:active {
+    color: #D29A00FF;
+}

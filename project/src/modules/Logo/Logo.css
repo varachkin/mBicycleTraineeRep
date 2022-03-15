@@ -1,0 +1,7 @@
+.header_logo_container a {
+    display: block;
+}
+
+.header_logo_container a img {
+    width: 65px;
+}
