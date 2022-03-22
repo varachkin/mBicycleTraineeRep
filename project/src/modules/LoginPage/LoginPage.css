@@ -1,0 +1,41 @@
+.section_image {
+
+    /*background-position: top;*/
+}
+
+.section_35vh {
+    height: 35vh;
+}
+
+h2 {
+    color: #fffbeb;
+    text-align: right;
+    font-size: 40px;
+}
+
+h3 {
+    padding: 40px;
+}
+
+.form_container {
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    padding: 30px 0 50px;
+}
+
+.login_img_block, .login_form_block {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login_img_block {
+    /*background-image: url("../src/public/login.png");*/
+}
+
+.login_img {
+    width: 100%;
+}
+

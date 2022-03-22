@@ -3,16 +3,22 @@
     src: url("https://fonts.googleapis.com/css2?family=Lato:wght@900&family=Roboto&display=swap");
 }
 
+
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
-body {
+.wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.body {
     position: relative;
-    min-height: 100vh;
+    height: 100vh;
     background-color: #ffffff;
     font-family: Roboto, sans-serif;
     font-weight: 400;
+    /*overflow: auto;*/
 }

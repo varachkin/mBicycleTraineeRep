@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
+.header_logo_container {
+    margin: 0 25px;
+}
+
+.header_logo_container a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: rgba(55, 55, 55, 0.87);
+}
+
+.header_logo_container span {
+    margin-left: 22px;
+    font-family: Anton, sans-serif;
+    font-size: 38px;
+    font-weight: 500;
+}
+
+.header_logo_container a img {
+    width: 65px;
+}

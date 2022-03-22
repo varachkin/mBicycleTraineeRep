@@ -1,14 +1,28 @@
+.nav {
+    display: flex;
+    align-items: center;
+}
+
 .nav ul {
     display: flex;
     list-style: none;
+    align-items: center;
 }
 
 .nav ul li {
     margin-left: 45px;
 }
 
-.nav ul li {
-    margin-left: 45px;
+.nav button {
+    font-size: 14px;
+    line-height: 14px;
+    padding: 12px;
+    border-radius: 2px;
+}
+
+.nav button:hover {
+    color: rgb(255, 145, 11);
+    /*background: #ff910b;*/
 }
 
 .nav_link {
