@@ -10,8 +10,11 @@ import {v4 as uuidv4} from "uuid";
 function Main(props) {
     return (
         <main>
+
             <section className="section_image section_100vh">
+
                 <div className="wrapper section_image_content container_padding_200">
+
                     <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, atque, consequuntur
                         corporis expedita explicabo laborum modi neque odit officiis perferendis quidem sed. Aut
                         doloribus eius eos fuga in inventore, nam.
@@ -59,7 +62,7 @@ function Main(props) {
             </section>
             <section className="products wrapper">
                 <div className="products_title">
-                    <h2>
+                    <h2 className="black_title">
                         <span>{'<='}</span>
                         Title
                         <span>{'=>'}</span>

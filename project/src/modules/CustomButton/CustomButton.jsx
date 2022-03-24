@@ -13,11 +13,11 @@ const ColorButton = styled(Button)(({theme}) => ({
     },
 }));
 
-export default function CustomButton() {
+export default function CustomButton(props) {
     return (
-        <div className="custom_button">
+        <div className="custom_button" style={{width: props.width}}>
             <Stack spacing={2} direction="row">
-                <ColorButton variant="contained">LOG IN</ColorButton>
+                <ColorButton variant="contained" disabled={props.isDisabled}>{props.text}</ColorButton>
             </Stack>
         </div>
 

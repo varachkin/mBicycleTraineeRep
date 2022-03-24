@@ -22,3 +22,13 @@
     font-weight: 400;
     /*overflow: auto;*/
 }
+
+.white_title {
+    color: #ffffff;
+    text-align: right;
+}
+
+.black_title {
+    color: #000000;
+    text-align: center;
+}

@@ -11,11 +11,9 @@ import Button from "@mui/material/Button";
 const themeGray = createTheme({
     palette: {
         primary: {
-            // Purple and green play nicely together.
             main: grey[700],
         },
         secondary: {
-            // This is green.A700 as hex.
             main: '#f09800',
         },
     },
@@ -23,11 +21,9 @@ const themeGray = createTheme({
 const themeOrange = createTheme({
     palette: {
         primary: {
-            // Purple and green play nicely together.
             main: orange[700],
         },
         secondary: {
-            // This is green.A700 as hex.
             main: '#f09800',
         },
     },
@@ -63,15 +59,18 @@ class Nav extends Component {
                     to: '/login',
                     isActive: false,
                 },
-            ]
+            ],
+            currentPage: 'Home',
         };
         this.changeColorHandler = this.changeColorHandler.bind(this)
     }
 
     changeColorHandler(e) {
+        let currentPage = '';
         let arr = this.state.arrButtons.map(i => {
             if (i.title === e.target.textContent) {
                 i.isActive = true;
+                currentPage = i.title;
                 return i;
             } else {
                 i.isActive = false;
@@ -79,8 +78,9 @@ class Nav extends Component {
             }
         });
         setTimeout(() => {
-            this.setState({arr})
+            this.setState({arr, currentPage: currentPage})
         }, 250);
+        console.log(this.state)
     }
 
 
