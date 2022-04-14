@@ -20,7 +20,7 @@ export const signIn = (email, password, cb) => {
   })
 }
 
-export const signUp = (email, password) => {
+export const signUp = (email, password, cb) => {
   const response = axios({
     method: 'post', url: signUpURL, data: {
       'email': email,
@@ -31,6 +31,6 @@ export const signUp = (email, password) => {
     console.log(resp.data.accessToken)
     Cookies.set('accessToken', resp.data.accessToken)
     Cookies.set('refreshToken', resp.data.refreshToken)
-  }).catch((e) => {alert('Сраная ошибка', e)})
+  }).catch((e) => {cb(e)})
   return response
 }

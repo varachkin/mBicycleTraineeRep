@@ -1,13 +1,13 @@
 import React from 'react';
 import "./Logo.css"
 import { NavLink } from 'react-router-dom'
-import logo from "../../../../public/logo.png"
+// import logo from "./Logo.png"
 
 function Logo(props) {
     return (
         <div className="header_logo_container">
             <NavLink to="/">
-                <img src={logo} alt={props.alt}/>
+                {/*<img src={logo} alt={props.alt}/>*/}
                 <span>SHOP</span>
             </NavLink>
 

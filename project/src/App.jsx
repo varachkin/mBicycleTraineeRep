@@ -12,23 +12,27 @@ import Contacts from "./modules/Contacts/Contacts";
 import Favourite from "./modules/Favourite/Favourite";
 import Footer from "./modules/Footer/Footer";
 import LoginPage from "./modules/LoginPage/LoginPage";
+import {themeLight} from "./modules/theme/theme";
+import {ThemeProvider} from "@mui/material/styles";
 
 
 function App() {
     return (
-        <BrowserRouter>
-            <div className="body">
-                <Header/>
-                <Routes>
-                    <Route path="/" element={<Main/>}/>
-                    <Route path="/about" element={<About/>}/>
-                    <Route path="/contacts" element={<Contacts/>}/>
-                    <Route path="/favourite" element={<Favourite/>}/>
-                    <Route path="/login" element={<LoginPage/>}/>
-                </Routes>
-                <Footer/>
-            </div>
-        </BrowserRouter>
+        <ThemeProvider theme={themeLight}>
+            <BrowserRouter>
+                <div className="body">
+                    <Header/>
+                    <Routes>
+                        <Route path="/" element={<Main/>}/>
+                        <Route path="/about" element={<About/>}/>
+                        <Route path="/contacts" element={<Contacts/>}/>
+                        <Route path="/favourite" element={<Favourite/>}/>
+                        <Route path="/login" element={<LoginPage/>}/>
+                    </Routes>
+                    <Footer/>
+                </div>
+            </BrowserRouter>
+        </ThemeProvider>
     );
 }
 

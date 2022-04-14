@@ -13,14 +13,15 @@
     max-width: 1200px;
     margin: 0 auto;
 }
-
+body{
+    overflow: auto;
+}
 .body {
     position: relative;
     height: 100vh;
     background-color: #ffffff;
     font-family: Roboto, sans-serif;
     font-weight: 400;
-    /*overflow: auto;*/
 }
 
 .white_title {

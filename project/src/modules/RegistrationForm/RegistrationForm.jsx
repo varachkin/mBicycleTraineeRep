@@ -5,6 +5,8 @@ import CustomButton from "../CustomButton/CustomButton";
 import CloseIcon from '@mui/icons-material/Close';
 import "./RegistrationForm.css"
 import {signUp} from "../../utils";
+import ReactDOM from "react-dom";
+import Popup from "../Popup/Popup";
 
 let emailStatus = false;
 let passwordStatus = false;
@@ -16,7 +18,22 @@ let confPassValue = null;
 const RegistrationForm = (props) => {
     const [values, setValues] = useState({
         isDisabledButton: true,
+        alert: {
+            isOpenAlert: true,
+            title: null,
+            text: null,
+        }
     });
+
+    const handleChangeAlert = (e)=> {
+        setValues({...values,
+            alert:{
+                ...values.alert,
+                isOpenAlert: !values.alert.isOpenAlert,
+                title: `Error ${e.message}`
+            }
+        })
+    }
 
     const handleChangeDisableButton = () => {
         if (emailStatus && passwordStatus && confirmPasswordStatus && passValue === confPassValue) {
@@ -45,34 +62,34 @@ const RegistrationForm = (props) => {
         });
     };
     return (
-        <div className="registration_block"
-             style={{visibility: props.style.visibility, opacity: props.style.opacity}}>
-            <form className="registration_content"
-                 style={{transform: props.style.transform, opacity: props.style.opacity}}>
-                <div className="close">
-                    <CloseIcon onClick={props.handleClose}/>
-                </div>
-                <h2 className="black_title">Registration</h2>
-                <p>
-                    <EmailInput changeStatus={(e, type, bool, value) => {
-                        handleChangeValidStatus(e, type, bool, value)
-                    }}/>
-                    <PasswordInput typeInput="password" changeStatus={(e, type, bool, value) => {
-                        handleChangeValidStatus(e, type, bool, value)
-                    }}/>
-                    <PasswordInput typeInput="confirmPassword" changeStatus={(e, type, bool, value) => {
-                        handleChangeValidStatus(e, type, bool, value)
-                    }}/>
-                </p>
-                <div onClick={() => {
-                    signUp(emailValue, passValue)
-                }}>
-                    <CustomButton text="Registration" isDisabled={values.isDisabledButton}
-                    />
-                </div>
+        <>
+            <div className="registration_block"
+                 style={{visibility: props.style.visibility, opacity: props.style.opacity}}>
+                <form className="registration_content"
+                      style={{transform: props.style.transform, opacity: props.style.opacity}}>
+                    <div className="close">
+                        <CloseIcon onClick={props.handleClose}/>
+                    </div>
+                    <h2 className="black_title">Registration</h2>
+                    <p>
+                        <EmailInput changeStatus={(e, type, bool, value) => {
+                            handleChangeValidStatus(e, type, bool, value)
+                        }}/>
+                        <PasswordInput typeInput="password" changeStatus={(e, type, bool, value) => {
+                            handleChangeValidStatus(e, type, bool, value)
+                        }}/>
+                        <PasswordInput typeInput="confirmPassword" changeStatus={(e, type, bool, value) => {
+                            handleChangeValidStatus(e, type, bool, value)
+                        }}/>
+                    </p>
+                    <div>
+                        <CustomButton text="Registration" isDisabled={values.isDisabledButton} handler={() => {
+                            signUp(emailValue, passValue)}} />
+                    </div>
+                </form>
+            </div>
+        </>
 
-            </form>
-        </div>
     );
 };
 

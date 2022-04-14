@@ -7,6 +7,7 @@ import PasswordInput from "./PasswordInput/PasswordInput";
 import EmailInput from "./EmailInput/EmailInput";
 import {useState} from "react";
 import {signIn} from "../../../utils";
+import AlertDialog from "../../AlertCustom/AlertCustom";
 
 
 let emailStatus = false;
@@ -21,16 +22,25 @@ export default function LoginForm(props) {
             isOpenAlert: false,
             title: null,
             text: null,
+            btnText: null,
         },
     });
 
     const handleChangeAlert = (e)=> {
-        setValues({...values, alert:{...values.alert, isOpenAlert: !values.alert.isOpenAlert, title: `Error ${e.message}`}})
+        setValues({...values,
+            alert:{
+                ...values.alert,
+                isOpenAlert: !values.alert.isOpenAlert,
+                title: `Error ${e}`,
+                text: `${e.message}`,
+                btnText: 'close'
+            }
+        })
     }
     const handleChangeDisableButton = () => {
         if (emailStatus && passwordStatus) {
             setValues({
-                ...values, isDisabledButton: !values.isDisabledButton,
+                ...values, isDisabledButton: !values.isDisabledButton, alert: {...values.alert}
             });
             return false;
         }
@@ -52,8 +62,8 @@ export default function LoginForm(props) {
     return (
         <Box sx={{display: 'flex', flexWrap: 'wrap'}}>
             {ReactDOM.createPortal(
-              <Popup isOpen={values.alert.isOpenAlert} title={values.alert.title}
-                     text={values.alert.text}
+              <AlertDialog isOpen={values.alert.isOpenAlert} title={values.alert.title}
+                     text={values.alert.text} btnText={values.alert.btnText}
                      closeAlert={handleChangeAlert}/>,
               document.getElementById('modal-root'))}
             <div>
@@ -63,8 +73,8 @@ export default function LoginForm(props) {
                 <PasswordInput typeInput="password" changeStatus={(e, type, value) => {
                     handleChangeValidStatus(e, type, value)
                 }}/>
-                <div onClick={() => signIn(emailVal, passVal, handleChangeAlert)}>
-                    <CustomButton text="LOG IN" isDisabled={values.isDisabledButton}/>
+                <div>
+                    <CustomButton text="LOG IN" isDisabled={values.isDisabledButton} handler={() => signIn(emailVal, passVal, handleChangeAlert)}/>
                 </div>
             </div>
         </Box>

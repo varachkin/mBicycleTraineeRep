@@ -17,7 +17,9 @@ export default function CustomButton(props) {
     return (
         <div className="custom_button" style={{width: props.width}}>
             <Stack spacing={2} direction="row">
-                <ColorButton variant="contained" disabled={props.isDisabled}>{props.text}</ColorButton>
+                <ColorButton variant="contained" disabled={props.isDisabled}
+                             onClick={props.handler}>{props.text}
+                </ColorButton>
             </Stack>
         </div>
 
