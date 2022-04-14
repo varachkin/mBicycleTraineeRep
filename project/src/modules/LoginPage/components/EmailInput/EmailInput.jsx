@@ -33,7 +33,7 @@ const EmailInput = (props) => {
     });
 
     const handleChange = (prop) => (event) => {
-        console.log(prop);
+
         const theme = validateInputField(prop, event);
 
         setValues(() => ({
@@ -48,7 +48,7 @@ const EmailInput = (props) => {
         const emailRegExp = /^[\w\d]+@[\w]{2,}.[\w]{2,}$/;
         if (emailRegExp.test(event.target.value)) {
             statusEmail = true;
-            props.changeStatus(event, inputName, statusEmail);
+            props.changeStatus(event, inputName, statusEmail, event.target.value);
             return {
                 themeInput: createTheme({
                     palette: {

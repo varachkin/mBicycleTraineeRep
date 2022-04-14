@@ -2,16 +2,9 @@ import React, {useState, Component} from 'react';
 import "./LoginPage.css"
 import LoginForm from "./components/LoginForm";
 import CustomButton from "../CustomButton/CustomButton";
-import {createTheme} from "@mui/material/styles";
-import {green, orange, red} from "@mui/material/colors";
-import PasswordInput from "./components/PasswordInput/PasswordInput";
-import EmailInput from "./components/EmailInput/EmailInput";
 import RegistrationForm from "../RegistrationForm/RegistrationForm";
-import {
-    BrowserRouter,
-    Routes,
-    Route,
-} from "react-router-dom";
+
+import InfoPopup from "../InfoPopup/InfoPopup";
 
 let statusEmail = false;
 let statusPassword = false;
@@ -24,6 +17,11 @@ function LoginPage(props) {
             transform: 'perspective(600px) translate(0, -100%) rotateX(45deg)',
             visibility: 'hidden',
             opacity: 0,
+        },
+        popup: {
+            view: false,
+            title: null,
+            text: null,
         },
     });
     const handleOpen = () => {
@@ -46,11 +44,15 @@ function LoginPage(props) {
             }
         });
     };
+    const openPopup = (response) => {
+        setValues({...values, popup: {title: 'DONE', text: response.body.token}})
+    };
     return (
 
         <main className="main">
 
             <RegistrationForm style={values.styles} isDisabled={values.isDisabled} handleClose={handleClose}/>
+            <InfoPopup data={values.popup}/>
 
 
             <section className="section_image section_35vh">
@@ -75,7 +77,7 @@ function LoginPage(props) {
                 </div>
                 <div className="login_form_block">
                     <h3>LOG IN TO ENTER</h3>
-                    <LoginForm/>
+                    <LoginForm callBackAlert={openPopup}/>
                 </div>
             </div>
         </main>

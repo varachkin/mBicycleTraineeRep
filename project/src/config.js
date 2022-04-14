@@ -3,7 +3,6 @@ import img_2 from "./../src/public/ico/f-icon2.png"
 import img_3 from "./../src/public/ico/f-icon3.png"
 import img_4 from "./../src/public/ico/f-icon4.png"
 import img from "./../src/public/p/p.png"
-import {render} from "react-dom";
 
 export const infoPanelData = [
     {
@@ -77,3 +76,8 @@ export const productsData = [
         rating: 1,
     },
 ];
+
+export const authorizationData = {
+    signUpURL: 'https://mbicycle-shop-be.herokuapp.com/signup',
+    signInURL: 'https://mbicycle-shop-be.herokuapp.com/signin'
+}

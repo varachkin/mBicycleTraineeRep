@@ -34,7 +34,6 @@ const PasswordInput = (props) => {
         },
     });
     const handleChange = (prop) => (event) => {
-        console.log(prop);
         const theme = validateInputField(prop, event);
 
         setValues(() => ({
@@ -43,7 +42,6 @@ const PasswordInput = (props) => {
             [prop]: event.target.value,
             [`${prop}IsValid`]: theme,
         }));
-        console.log(props.labelError)
     };
 
     const handleClickShowPassword = () => {

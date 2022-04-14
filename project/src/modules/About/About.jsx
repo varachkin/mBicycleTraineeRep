@@ -1,4 +1,5 @@
 import React from 'react';
+import Popup from '../Popup/Popup'
 
 
 function About(props) {

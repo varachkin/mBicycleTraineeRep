@@ -1,7 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
 
 .header_logo_container {
+    display: flex;
+    align-items: center;
     margin: 0 25px;
+    height: 60px;
 }
 
 .header_logo_container a {
@@ -18,6 +21,9 @@
     font-weight: 500;
 }
 
-.header_logo_container a img {
-    width: 65px;
+.header_logo_container a {
+    height: 100%;
+}
+.header_logo_container a img{
+    height: 100%;
 }
